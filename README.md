@@ -9,7 +9,7 @@ Side Chain Ethereum
 Le réseau fast Coin est une Side Chain Ethereum basée sur un conscensus proof of authority clique de 3 secondes permettant 
 la rapidité et la fluidité des opéraions.
 
-L'objectif est de permettre aux utilisteurs d'échanger rapidement en toute sécurité, sans intermédiaire, de manière la plus instantanée possible, et à coût minime.
+L'objectif est de permettre aux utilisateurs d'échanger rapidement en toute sécurité, sans intermédiaire, de manière la plus instantanée possible, et à coût minime.
 
 Ce projet vise également à répondre au problème de scalabilité du réseau principal.
 
@@ -25,7 +25,7 @@ cryptographiques.
 En effet, pour pouvoir utiliser le réseau Fast Coin, l'utilisateur doit pouvoir créditer son compte en Ether.
 Pour cela il va devoir déposer la somme correspondante sur le réseau principal. Puis, un message, composé du hash
 de plusieurs paramètres va être généré.
-Ce message est à spécifié au niveau du deuxième smart contract déployé sur le réseau Fast Coin.
+Ce message est à spécifier au niveau du deuxième smart contract déployé sur le réseau Fast Coin.
 Le message est vérifié, et les fonds déposés sur le réseau principal, sont transférés depuis le smart contract
 vers le compte de l'utilisateur sur le réseau secondaire.
 
@@ -61,7 +61,7 @@ Merci de suivre les étapes suivantes:
     => Lancer la commande: ssh -i [chemin complet vers le fichier ssh] alyra@104.197.226.48
     exemple: ssh -i /c/Users/admin/.ssh/alyra-key alyra@104.197.226.48
 
-    => Une passphrase vous serez demandée, entrer la valeur "alyra"
+    => Une passphrase vous sera demandée, entrer la valeur "alyra"
 
     => Vous devriez être connectée à la machine virtuelle linux sous le user alyra
 
@@ -75,7 +75,7 @@ Merci de suivre les étapes suivantes:
     => Lancer le second noeud:
             ouvrez un nouveau terminal et reconnectez vous à la machine virtuelle (étape 1)
 
-    => Une fois connectée, lancer la commande:
+    => Une fois connecté, lancer la commande:
             sudo /home/hs_salah/reseau4/scriptNoeud4.sh
 
     => Patienter quelques secondes, vous devriez voir le second noeud se synchroniser
