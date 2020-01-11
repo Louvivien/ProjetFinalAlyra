@@ -2,3 +2,7 @@
 
 <h2>Fast Coin Network</h2>
 
+Side Chain Ethereum
+
+<h4>Présentation
+
