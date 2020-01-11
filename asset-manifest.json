@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ProjetFinalAlyra/static/css/main.d9b88244.chunk.css",
+    "main.js": "/ProjetFinalAlyra/static/js/main.4cbd9d6c.chunk.js",
+    "main.js.map": "/ProjetFinalAlyra/static/js/main.4cbd9d6c.chunk.js.map",
+    "runtime-main.js": "/ProjetFinalAlyra/static/js/runtime-main.35ae9a53.js",
+    "runtime-main.js.map": "/ProjetFinalAlyra/static/js/runtime-main.35ae9a53.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/ProjetFinalAlyra/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.e4a380a4.chunk.js": "/ProjetFinalAlyra/static/js/2.e4a380a4.chunk.js",
+    "static/js/2.e4a380a4.chunk.js.map": "/ProjetFinalAlyra/static/js/2.e4a380a4.chunk.js.map",
+    "index.html": "/ProjetFinalAlyra/index.html",
+    "precache-manifest.5b886e68c07238911c7c58235d333c69.js": "/ProjetFinalAlyra/precache-manifest.5b886e68c07238911c7c58235d333c69.js",
+    "service-worker.js": "/ProjetFinalAlyra/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/ProjetFinalAlyra/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.d9b88244.chunk.css.map": "/ProjetFinalAlyra/static/css/main.d9b88244.chunk.css.map",
+    "static/js/2.e4a380a4.chunk.js.LICENSE": "/ProjetFinalAlyra/static/js/2.e4a380a4.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35ae9a53.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.e4a380a4.chunk.js",
+    "static/css/main.d9b88244.chunk.css",
+    "static/js/main.4cbd9d6c.chunk.js"
+  ]
+}
