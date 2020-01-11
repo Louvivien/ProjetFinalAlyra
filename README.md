@@ -54,7 +54,7 @@ Merci de suivre les étapes suivantes:
 
              1- Se connecter à la machine virtuelle:
 
-    => Télécharger la clé SSH fournie
+    => Télécharger la clé SSH préalablement fournie
 
     => Ouvrez un terminal, que vous soyez sur windows ou autre système d'exploitation vérifier que la commande ssh existe.
             
