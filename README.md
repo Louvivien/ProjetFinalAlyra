@@ -4,7 +4,7 @@
 
 Side Chain Ethereum
 
-<h4>Présentation
+<h4>Présentation</h4>
 
 Le réseau fast Coin est une Side Chain Ethereum basée sur un conscensus proof of authority clique de 3 secondes permettant 
 la rapidité et la fluidité des opéraions.
@@ -14,7 +14,7 @@ L'objectif est de permettre aux utilisteurs d'échanger rapidement en toute séc
 Ce projet vise également à répondre au problème de scalabilité du réseau principal.
 
 
-<h4>Fonctionnement
+<h4>Fonctionnement</h4>
 
 Deux smart contracts ont été créés, un premier déployé sur le réseau principal (ici Rop Sten), 
 et un second sur le réseau Fast Coin.
@@ -36,7 +36,7 @@ Ce message doit être communiqué au smart contract du réseau principal, qui le
 et transfert les fonds le cas échéant.
 
 
-<h4>interface utilisateur
+<h4>interface utilisateur</h4>
 
 URL: https://hany-s.github.io/ProjetFinalAlyra/
 
@@ -45,7 +45,7 @@ La DAPP a été réalisée sous React et utilise la librairie web3, et Metamask 
 Vous pouvez consulter l'aide dans la rubrique "comment utiliser Fast Coin Network".
 
 
-<h4>Déployer le réseau Fast Coin
+<h4>Déployer le réseau Fast Coin</h4>
 
 Pour pouvoir réaliser vos tests, et déployer la side Chain, une machine virtuelle a été créée
 pour vous permettre de vous y connecter et de lancer le réseau.
