@@ -22,16 +22,16 @@ contract fastCoinMain {
     mapping(address => carac) private depositBalance;
     mapping(address => carac) private withdrawBalance;
 
+        ///@notice modifier qui vérifie que le msg.sender = owner
+    modifier isOwner() {
+        require(msg.sender == owner, "Vous n'avez pas les droits");
+        _;
+    }
+
     constructor(string memory message) public {
         owner = msg.sender;
         secret = message;
     }
-
-        ///@notice modifier qui vérifie que le msg.sender = owner
-        modifier isOwner() {
-            require(msg.sender == owner, "Vous n'avez pas les droits");
-            _;
-        }
 
          /// @notice configure l'adresse des contrats
         function setContractAddress(address sideContract) external isOwner() {

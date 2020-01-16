@@ -27,7 +27,7 @@ class Accueil extends React.Component {
             <div class="row">
                 <button class="btn btn-outline-primary col" onClick={() => this.props.tuto()}>Comment utiliser Fast Coin Network?</button>
                 <div class="col"></div>
-                <button class="btn btn-outline-warning col">Découvrir notre technologie</button>
+                <button class="btn btn-outline-warning col" onClick={() => this.props.decouvrir()}>Découvrir notre technologie</button>
             </div>
         </div>
     </div>

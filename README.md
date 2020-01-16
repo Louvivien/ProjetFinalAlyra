@@ -9,7 +9,7 @@ Side Chain Ethereum
 Le réseau fast Coin est une Side Chain Ethereum basée sur un conscensus proof of authority clique de 3 secondes permettant 
 la rapidité et la fluidité des opéraions.
 
-L'objectif est de permettre aux utilisateurs d'échanger rapidement en toute sécurité, sans intermédiaire, de manière la plus instantanée possible, et à coût minime.
+L'objectif est de permettre aux utilisateurs d'échanger de la valeur rapidement en toute sécurité, sans intermédiaire, de manière la plus instantanée possible, et à coût minime.
 
 Ce projet vise également à répondre au problème de scalabilité du réseau principal.
 
@@ -19,21 +19,60 @@ Ce projet vise également à répondre au problème de scalabilité du réseau p
 Deux smart contracts ont été créés, un premier déployé sur le réseau principal (ici Rop Sten), 
 et un second sur le réseau Fast Coin.
 
-L'interaction entre ces deux smart contracts et donc entre les deux réseaux, se fait via la génération de messages
+Le but est de pouvoir intérargir entre les deux réseaux principal et secondaire, pour pouvoir transférer les valeurs détenus 
+d'un réseau vers l'autre. Dans ce sens on suit le principe: "Les dépôts font les retraits."
+
+La communication entre ces deux smart contracts et donc entre les deux réseaux, se fait via la génération de messages
 cryptographiques.
 
-En effet, pour pouvoir utiliser le réseau Fast Coin, l'utilisateur doit pouvoir créditer son compte en Ether.
-Pour cela il va devoir déposer la somme correspondante sur le réseau principal. Puis, un message, composé du hash
-de plusieurs paramètres va être généré.
-Ce message est à spécifier au niveau du deuxième smart contract déployé sur le réseau Fast Coin.
-Le message est vérifié, et les fonds déposés sur le réseau principal, sont transférés depuis le smart contract
-vers le compte de l'utilisateur sur le réseau secondaire.
+En effet, lors d'un dépôt, c'est à dire l'envoie d'Ether vers un smart contract, l'utilisateur va pouvoir générer un message.
+Ce message est le hash de la concaténation de plusieurs paramètres:
+l'adresse publique de l'utilisateur, le montant déposé, un nonce (qui correspond au nombre de dépôt effectué par l'utilisateur), 
+l'adresse publique du contrat, ainsi qu'un message secret créé lors du déploiement du contrat.
 
-A l'inverse, si l'utilisateur souhaite retirer ses Ether du réseau secondaire vers le réseau principal,
-il réalise la même opération dans le sens opposé.
-Un dépôt est effectué sur le smart contract du réseau secondaire, un message est généré.
-Ce message doit être communiqué au smart contract du réseau principal, qui le vérifie,
-et transfert les fonds le cas échéant.
+C'est ce message qui va permettre la communication entre les deux contrats et donc les deux réseaux. 
+En effet, pour retirer ce même montant au niveau de l'autre réseau, c'est à dire demander au smart contrat d'envoyer
+à l'utilisateur cette somme d'Ether sur son compte, une fonction retrait a été créée.
+
+Pour lancer cette fonction, l'utilisateur va devoir indiquer le message généré précedemment ainsi que le montant correspondant.
+Une vérification va donc être enclenchée: si le hash de la concaténation des paramètres ci dessous est égale au message renseigné
+alors le paiement est réalisé. A savoir:
+adresse publique de l'utilisateur, montant spécifié, le nonce + 1 (qui correspond au nombre de retrait déjà effectué),
+l'adresse publique du contrat mère, et le message secret qui est le même pour les deux contrats.
+
+A noter que pour chaque dépôt ou retrait, le nonce est incrémenter automatiquement. Ce qui ne permet pas à l'utilisateur 
+d'utiliser plusieurs fois le même message.
+
+<h4>Mise en place du réseau Fast Coin</h4>
+
+Le réseau Fast Coin a été configuré depuis le client geth.
+
+- L'adresse coinbase a été créée depuis la commande geth account new
+- Un genesis block a été défini grâce à l'outil Puppeth de geth
+- Le fichier généré est placé dans un dossier dédié, dans lequel on initie geth
+- La clé privée correspondant à l'adresse coinbase est importée
+- Le script suivant permet le lancement du réseau:
+geth --identity "noeud3" --datadir "/home/hs_salah/reseau3" --syncmode 'full' --networkid "230" --port "30305" --rpc --rpcaddr '10.128.0.3' --rpcport "8548" --rpcapi 'personal,db,eth,net,web3,txpool,miner,clique,admin'  --nodiscover --gasprice '0' --ipcdisable --allow-insecure-unlock --unlock '0xcce00e06a27c04c2456177f85b0d25e565cf6d93' --password /home/hs_salah/reseau3/pwd.txt
+
+- Les différents noeuds du réseau sont synchronisés entre eux via un fichier static-nodes.json reprenant 
+l'adresse enode de tous les noeuds.
+
+<h4>Partie test</h4>
+
+Les tests ont été réalisés grâce à l'outil truffle.
+
+=> Prérequis: installer node et truffle
+
+- Dans un dossier dédié, lancer un git clone du dossier test:
+https://github.com/hany-s/ProjetFinalAlyra/tree/master/testSmartContract
+
+- Installer les bibliothèques chai et @openzeppelin/test-helpers:
+npm install chai, npm install @openzeppelin/test-helpers
+
+- lancer la commande truffle develop:
+Le réseau s'ouvre en local
+
+- Lancer la commande truffle test ./testSmartContract1.js
 
 
 <h4>interface utilisateur</h4>
@@ -45,10 +84,10 @@ La DAPP a été réalisée sous React et utilise la librairie web3, et Metamask 
 Vous pouvez consulter l'aide dans la rubrique "comment utiliser Fast Coin Network".
 
 
-<h4>Déployer le réseau Fast Coin</h4>
+<h4>Déploiement du réseau Fast Coin</h4>
 
 Pour pouvoir réaliser vos tests, et déployer la side Chain, une machine virtuelle a été créée
-pour vous permettre de vous y connecter et de lancer le réseau.
+afin de vous y connecter et de lancer le réseau.
 
 Merci de suivre les étapes suivantes:
 
@@ -87,8 +126,5 @@ Merci de suivre les étapes suivantes:
 
     N.B.: Vous retrouverez ces indications dans la rubrique "comment utiliser Fast Coin Network"
     de l'interface utilisateur.
-
-
-<h4>test smart contract</h4>
 
 

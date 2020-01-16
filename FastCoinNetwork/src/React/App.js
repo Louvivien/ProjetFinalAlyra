@@ -4,12 +4,13 @@ import NavA from './NavA'
 import Accueil from './Accueil'
 import Tuto from './Tuto/Tuto'
 import Compte from './Compte/compte'
+import Decouvrir from './decouvrir/Decouvrir'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: <Accueil tuto={this.getTuto} compte={this.getCompte}/>,
+      page: <Accueil tuto={this.getTuto} compte={this.getCompte} decouvrir={this.getDecouvrir}/>,
       nav: <NavA accueil={this.getAccueil} />
     }
   }
@@ -22,13 +23,19 @@ class App extends React.Component {
 
   getAccueil = () => {
     this.setState({
-      page: <Accueil tuto={this.getTuto} compte={this.getCompte}/>
+      page: <Accueil tuto={this.getTuto} compte={this.getCompte} decouvrir={this.getDecouvrir}/>
     })
   }
 
   getCompte = () => {
     this.setState ({
       page: <Compte tuto={this.getTuto}/>
+    })
+  }
+
+  getDecouvrir = () => {
+    this.setState ({
+      page: <Decouvrir />
     })
   }
 
