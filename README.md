@@ -19,7 +19,7 @@ Ce projet vise également à répondre au problème de scalabilité du réseau p
 Deux smart contracts ont été créés, un premier déployé sur le réseau principal (ici Rop Sten), 
 et un second sur le réseau Fast Coin.
 
-Le but est de pouvoir intérargir entre les deux réseaux principal et secondaire, pour pouvoir transférer les valeurs détenus 
+Le but est de pouvoir intérargir entre les deux réseaux principal et secondaire, et ainsi transférer les valeurs détenues 
 d'un réseau vers l'autre. Dans ce sens on suit le principe: "Les dépôts font les retraits."
 
 La communication entre ces deux smart contracts et donc entre les deux réseaux, se fait via la génération de messages
