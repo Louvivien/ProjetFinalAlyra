@@ -35,8 +35,8 @@ En effet, pour retirer ce même montant au niveau de l'autre réseau, c'est à d
 à l'utilisateur cette somme d'Ether sur son compte, une fonction retrait a été créée.
 
 Pour lancer cette fonction, l'utilisateur va devoir indiquer le message généré précedemment ainsi que le montant correspondant.
-Une vérification va donc être enclenchée: si le hash de la concaténation des paramètres ci dessous est égale au message renseigné
-alors le paiement est réalisé. A savoir:
+Une vérification va donc être enclenchée: si le hash de la concaténation des paramètres ci dessous est égal au message renseigné
+alors le paiement est réalisé. Paramètres:
 adresse publique de l'utilisateur, montant spécifié, le nonce + 1 (qui correspond au nombre de retrait déjà effectué),
 l'adresse publique du contrat mère, et le message secret qui est le même pour les deux contrats.
 
@@ -51,7 +51,7 @@ Le réseau Fast Coin a été configuré depuis le client geth.
 - Un genesis block a été défini grâce à l'outil Puppeth de geth
 - Le fichier généré est placé dans un dossier dédié, dans lequel on initie geth
 - La clé privée correspondant à l'adresse coinbase est importée
-- Le script suivant permet le lancement du réseau:
+- Exemple de script permettant le lancement du réseau:
 geth --identity "noeud3" --datadir "/home/hs_salah/reseau3" --syncmode 'full' --networkid "230" --port "30305" --rpc --rpcaddr '10.128.0.3' --rpcport "8548" --rpcapi 'personal,db,eth,net,web3,txpool,miner,clique,admin'  --nodiscover --gasprice '0' --ipcdisable --allow-insecure-unlock --unlock '0xcce00e06a27c04c2456177f85b0d25e565cf6d93' --password /home/hs_salah/reseau3/pwd.txt
 
 - Les différents noeuds du réseau sont synchronisés entre eux via un fichier static-nodes.json reprenant 
