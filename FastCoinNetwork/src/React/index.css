@@ -6,19 +6,52 @@ body {
   background-size: cover; /* version standardisée */
 }
 
-.defil {
-  animation-duration: 2s;
-  animation-name: defiler;
+.apparition {
+  animation: apparition 3s;
 }
 
-@keyframes defiler {
+@keyframes apparition {
   from {
-    margin-left: 100%;
-    width: 300%; 
+    opacity: 0; 
+  }
+
+to {
+    opacity: 1;
+  }
+}
+
+.bouton {
+  border-radius: 50%;
+}
+
+.apparition2 {
+  animation: apparition2 1,5s;
+}
+
+@keyframes apparition2 {
+  from {
+    opacity: 0;
   }
 
   to {
-    margin-left: 0%;
-    width: 100%;
+    opacity: 1;
   }
+}
+
+.apparition3 {
+  animation: apparition2 1,5s 1s;
+}
+
+.centrer {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+}
+
+.attente {
+  position: absolute;
+  top: 40%;
+  width: 100%;
 }

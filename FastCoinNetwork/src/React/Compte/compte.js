@@ -1,17 +1,16 @@
 import React from 'react';
-import RopSten from './RopSten'
-import FastCoin from './FastCoin'
+import Connect from './connect'
 import Error from './Error'
 import Web3 from 'web3'
-// import sha256 from 'crypto-js/sha256'
+import Loader from './loader'
 
 
 class Compte extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      web3: null,
-      Page: <Error />
+      Page: <Loader />,
+      web3: null
     }
   }
 
@@ -21,61 +20,57 @@ class Compte extends React.Component {
 
     async loadWeb3() {
       if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum)
-      await window.ethereum.enable()
-      await this.loadBlockchainData()
+          window.web3 = new Web3(window.ethereum)
+      try {
+        await window.ethereum.enable()
+        await this.getConnect()
+      } catch(e) {
+        this.getError()
+      }
       }
       else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider)
-      await this.loadBlockchainData()
+      try {
+        window.web3 = new Web3(window.web3.currentProvider)
+        await this.getConnect()
+      } catch(e) {
+       this.getError()
+      }
       }
       else {
       window.alert("Vous n'avez pas de Wallet connectée, vous devriez essayer Metamask!")
+      this.getError()
       }
       }
 
-      loadBlockchainData  = async () => {
-        const web3 = window.web3
-        const accounts = await web3.eth.getAccounts()
-        let networkId = await web3.eth.net.getId()
-        let page
-        if (networkId === 3) {
-          networkId = "RopSten"
-          page= <RopSten data={this.loadBlockchainData}/>
-        } else if (networkId === 230) {
-          networkId = "Fast Coin Network"
-          page= <FastCoin data={this.loadBlockchainData}/>
-        }
-        let Balance = await web3.eth.getBalance(accounts[0])
-        Balance = await web3.utils.fromWei(Balance, 'ether')
+      getError = () => {
         this.setState({
-          account: accounts[0],
-          web3: web3,
-          netId: networkId,
-          balance: Balance,
-          Page: page
+          Page: <Error />
+        })
+      }
+
+      getConnect = () => {
+        this.setState({
+          Page: <Connect />
+        })
+      }
+      
+
+        sign = async () => {
+          const web3 = window.web3
+          const signature = await web3.eth.sign("0x5720ae429c392fa8866dae94fd5bbd610dcf18a572e00b70e85f0cde734edb09", "0x01571Cb736d23AB48931d2d24EbFf3D326db3E97")
+          this.setState({
+            signature: "signature: " + signature
           })
         }
 
   render() {
     return (
 
-        <div class="container text-light">
-          <div class="defil">
-            <h2 class="my-3 text-center"><ins>Bienvenue dans votre espace</ins></h2>
-            <hr class="my-4 bg-light"></hr>
-            <h5 class="mt-3 text-center">Vos informations de connexions:</h5>
-            <div class="row justify-content-center mt-3">
-              <ul class="list-group">
-            <li>network: {this.state.netId}</li>
-            <li>Votre compte: {this.state.account}</li>
-            <li>Votre balance: {this.state.balance} Ether</li>
-            </ul>
-            </div>
-            <hr class="my-4 bg-light"></hr>
-            {this.state.Page}
-            </div>
-            </div>
+
+        <div>
+          {this.state.Page}
+        </div>
+        
     
     )
   }

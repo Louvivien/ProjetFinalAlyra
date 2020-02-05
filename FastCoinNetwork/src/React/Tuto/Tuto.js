@@ -52,8 +52,8 @@ class Tuto extends React.Component {
 
   render() {
     return (
-        <div class="container">
-            <div class="text-white mt-4 defil">
+        <div class="container apparition">
+            <div class="text-white mt-4">
               <div class="text-center">
                 <h3 class><ins>Utiliser notre plateforme:</ins></h3>
                 <small>Ce guide vous permet d'utiliser notre plateforme de la façon la plus optimale.</small>
@@ -66,7 +66,10 @@ class Tuto extends React.Component {
                   <button class="btn btn-outline-info" onClick={() => this.getTuto5()}>Créditer</button>
                   <button class="btn btn-outline-info" onClick={() => this.getTuto6()}>Retirer</button>
                 </div>
+                <div class="apparition">
                   {this.state.page}
+                </div>
+                  
             </div>           
         </div>
         

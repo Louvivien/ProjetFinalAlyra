@@ -11,8 +11,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       page: <Accueil tuto={this.getTuto} compte={this.getCompte} decouvrir={this.getDecouvrir}/>,
-      nav: <NavA accueil={this.getAccueil} />
+      nav: <NavA tuto={this.getTuto} compte={this.getCompte} decouvrir={this.getDecouvrir} accueil={this.getAccueil}/>
     }
+  }
+
+  componentWillMount() {
+    this.checkWeb3()
+  }
+
+  checkWeb3 = () => {
+      if (window.web3) {
+        this.getCompte()
+      }
   }
 
   getTuto = () => {
