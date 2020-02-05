@@ -12,7 +12,7 @@ class Decouvrir extends React.Component {
                 <p>Notre réseau se base sur la technologie Blockchain Ethereum, et a été créé depuis le client Geth. </p>
                 <p>Il se base sur un principe de conscensus proof of authority, avec une durée de validation de blocks de 3 secondes, permettant la validation rapide des transactions.</p>
                 <p>Il cherche à répondre au problème de scalabilité du réseau public Ethereum, et à améliorer la fluidité des transactions.</p>
-                <p>L'objectif est de permettre aux utilisateurs de s'échanger de la valeur quasi-instantanément, à des frais minimes, et sans intermédiaires.</p>
+                <p>L'objectif est de permettre aux utilisateurs de s'échanger de la valeur quasi-instantanément, en limitant les frais et les intermédiaires.</p>
                 <li class="my-3"><h3 class="font-italic"><ins>Intéraction entre les réseaux</ins></h3></li>
                 <p>
                   Un smart contracts a été développé, déployé sur le réseau principal et privé. 
